@@ -1,0 +1,4 @@
+_target_: src.dataset.imagecas_enchanced.ImageCASEnhancedDataModule
+surface_folder: ${paths.data_dir}imagecas_left_surface
+train_filelist_path: ${paths.data_dir}filelist_train.txt
+val_filelist_path: ${paths.data_dir}filelist_val.txt

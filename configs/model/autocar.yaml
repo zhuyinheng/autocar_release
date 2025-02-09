@@ -1,0 +1,34 @@
+_target_: src.modules.autocar_pl.AutoCARLit
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.0004
+  weight_decay: 0.0
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: max
+  factor: 0.5
+  patience: 50
+
+recon_net:
+  encoder2d:
+    out_ch: 16
+  ray_casting:
+    bbox_min: [-100, -100, -100]
+    bbox_max: [100, 100, 100]
+    LODs: [8,4,2,1,0.5]
+  unet3d:
+    in_channels: 16
+    out_channels: 2
+
+deform_augmentor:
+  _target_: src.dataset.deform_augmentor.SinDeformAugmentor
+  amplitude: 0.05
+  period: 1
+
+render_batch_size: 1
+render_view_num: 2
+

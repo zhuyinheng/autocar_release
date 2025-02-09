@@ -1,0 +1,26 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /data: imagecas_left
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+tags: ["peer_review", "imagecas","left"]
+
+trainer:
+  min_epochs: 50
+  max_epochs: 200
+  gradient_clip_val: 0.5
+
+model:
+  optimizer:
+    lr: 0.001
+
+# data:
+#   train_filelist_path: ${paths.data_dir}filelist_sample.txt
+#   val_filelist_path: ${paths.data_dir}filelist_sample.txt
+
